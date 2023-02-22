@@ -1,5 +1,5 @@
-const container = document.getElementById('card')
-const forecast = document.getElementById('forecast')
+const container = document.getElementById('city')
+const forecast = document.getElementById('forecast-container')
 
 
 fetch("https://api.openweathermap.org/data/2.5/weather?q=Stockholm,Sweden&units=metric&APPID=14156af54d10ce159e1b521416adb87f")
@@ -16,7 +16,8 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=Stockholm,Sweden&units=
         <h1> ${json.name} </h1>
         <h2> ${(Math.round(json.main.temp))}°C</h2>
         <h3> ${json.weather[0].description}</h3>
-        <h4> sunrise ${sunrise.toLocaleTimeString()} sunset ${sunset.toLocaleTimeString()}  </h4>
+        <h4> 🌅 sunrise ${sunrise.toLocaleTimeString()}</h4>
+        <h4> 🌇 sunset ${sunset.toLocaleTimeString()}</h4>
         `
     })
 
@@ -38,4 +39,6 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=Stockholm,Sweden&units=
             
         
         })
-        
+ 
+   
+ 
