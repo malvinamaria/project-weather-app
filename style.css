@@ -1,3 +1,4 @@
+
 body {
     display: flex;
     justify-content: center;
@@ -48,3 +49,21 @@ body {
     flex-direction: column;
     align-items: center;
   } */
+
+
+
+.forecast {
+    display: flex;
+    color: blueviolet;
+    justify-content: center;
+}
+
+.forecast-wrapper {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid;
+    padding: 1rem;
+    row-gap: 1rem;
+
+}
+
