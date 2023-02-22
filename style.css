@@ -66,17 +66,6 @@ h1 {
 }
 
 
-.forecast-container img {
-  margin: 0 50px;
-  width: 50px;
-  height: 50px;
-  overflow: hidden;
-}
-
-.weather-icon {
-  margin-top: 20px;
-}
-
 
 @media (min-width: 767px) {
 
