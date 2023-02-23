@@ -1,5 +1,10 @@
+
 const container = document.getElementById('city');
-const forecast = document.getElementById('forecast-container');
+const forecastDate = document.getElementById('forecastDate')
+const forecastTemp = document.getElementById('forecastTemp')
+const forecastFeels = document.getElementById('forecastFeels')
+const forecastMinMax = document.getElementById('forecastMinMax')
+
 
 // Get the user's current location
 navigator.geolocation.getCurrentPosition((position) => {
@@ -30,11 +35,17 @@ navigator.geolocation.getCurrentPosition((position) => {
       // Filter the forecast data to only show the information for 12:00 PM each day
       const filteredForecast = json.list.filter((item) => item.dt_txt.includes('12:00'));
 
-      // Update the HTML content with the forecast data for the user's location
-      filteredForecast.forEach((weeklyForecast) => {
-        forecast.innerHTML += `<h3>${weeklyForecast.dt_txt} |---| ${weeklyForecast.main.temp.toFixed(1)}\u00B0C <h3>
-                                        <p>Feels like ${weeklyForecast.main.feels_like}\u00B0C<p>
-                                        <p>High: ${weeklyForecast.main.temp_max}\u00B0C Low:${weeklyForecast.main.temp_min}\u00B0C<p>`;
-      });
-    });
-});
+             const filteredForecast = json.list.filter(item => item.dt_txt.includes('12:00'))
+            console.log(filteredForecast)
+            filteredForecast.forEach((weeklyForecast) => {
+                forecastTemp.innerHTML += `<span>${weeklyForecast.main.temp.toFixed(0)}\u00B0C</span> `
+                forecastFeels.innerHTML += `<span>${weeklyForecast.main.feels_like.toFixed(0)}\u00B0C</span> `
+                forecastMinMax.innerHTML += `<span>${weeklyForecast.main.temp_min.toFixed(0)}\u00B0C/${weeklyForecast.main.temp_max.toFixed(0)}\u00B0C</span> `
+            })
+            filteredForecast.forEach((day) => {
+                const date = new Date(day.dt * 1000)
+                let dayName = date.toLocaleDateString("en-US", {weekday: "short"})
+                forecastDate.innerHTML += `<span>${dayName}</span>`
+                })
+             })
+        

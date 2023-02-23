@@ -8,6 +8,7 @@
     <title>Weather APP</title>
 </head>
 <body>
+
     <section class="container">
         <section class="city" id="city">
            <div id="city-name"></div>
@@ -19,10 +20,30 @@
            <div id="sunset"></div>
         </section>
         
-        <section class="forecast-container" id="forecast-container">
-          <div class ="forecast-wrapper" id="forecast"></div>
-        </section>
-      </section>
+
+     <section class="card">
+        <div id="card" class="city"></div>
+            <h2 class="city">Weather in xxx place</h2>
+
+        <div class="weather"></div>
+        
+        <div class="temperature"></div>
+    </section>
+
+    
+    <section id="forecastCard" class="forecast-card">
+        <div id="forecastDate" class="forecast-category"><p>Date</p></div>
+            
+        <div id="forecastTemp" class="forecast-category"><p>Temp</p></div>
+            
+        <div id="forecastFeels" class="forecast-category"><p>Feels like</p></div>
+            
+        <div id="forecastMinMax" class="forecast-category"><p>Min/Max</p></div>
+            
+    </section>
+
+    
+
     <script src="./script.js"></script>
 </body>
 </html>
