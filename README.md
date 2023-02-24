@@ -6,7 +6,7 @@ Start by briefly describing the assignment in a sentence or two. Keep it short a
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+Oscar- If/else if statements will be the death of me. I spent a lot of time searching a lot of sites for info but in the end, chatting with the animal team was the best way to solve the issue. I couldn't get the weather icons to show up for all of the days, but maybe in the future!
 
 ## View it live
 

@@ -4,7 +4,7 @@ const forecastDate = document.getElementById('forecastDate')
 const forecastTemp = document.getElementById('forecastTemp')
 const forecastFeels = document.getElementById('forecastFeels')
 const forecastMinMax = document.getElementById('forecastMinMax')
-
+const showWeatherIcons = document.getElementById('weatherIcon')
 
 // Get the user's current location
 navigator.geolocation.getCurrentPosition((position) => {
@@ -33,7 +33,6 @@ navigator.geolocation.getCurrentPosition((position) => {
     .then((response) => response.json())
     .then((json) => {
       // Filter the forecast data to only show the information for 12:00 PM each day
-      const filteredForecast = json.list.filter((item) => item.dt_txt.includes('12:00'));
 
              const filteredForecast = json.list.filter(item => item.dt_txt.includes('12:00'))
             console.log(filteredForecast)
@@ -41,11 +40,30 @@ navigator.geolocation.getCurrentPosition((position) => {
                 forecastTemp.innerHTML += `<span>${weeklyForecast.main.temp.toFixed(0)}\u00B0C</span> `
                 forecastFeels.innerHTML += `<span>${weeklyForecast.main.feels_like.toFixed(0)}\u00B0C</span> `
                 forecastMinMax.innerHTML += `<span>${weeklyForecast.main.temp_min.toFixed(0)}\u00B0C/${weeklyForecast.main.temp_max.toFixed(0)}\u00B0C</span> `
+            const conditions = (weeklyForecast.weather[0].main);
+               const showWeatherIcons = () => { 
+                
+                  if (conditions === "Clear") {
+                    document.getElementById("gifIcon").src = "./images/sun-weather.gif";
+                  } else if (conditions === "Rain") {
+                    document.getElementById("gifIcon").src = "./images/rainy-weather.gif";
+                  } else if (conditions === "Snow") {
+                    document.getElementById("gifIcon").src = "./images/snow-storm-weather.gif";
+                  }
+                  else {
+                    document.getElementById("gifIcon").src = "./images/cloudy-weather.gif";
+                  }
+                  
+                  };  
+                  showWeatherIcons(conditions)    
             })
             filteredForecast.forEach((day) => {
                 const date = new Date(day.dt * 1000)
                 let dayName = date.toLocaleDateString("en-US", {weekday: "short"})
                 forecastDate.innerHTML += `<span>${dayName}</span>`
                 })
+              })
+               
+                 
              })
-        
+            
