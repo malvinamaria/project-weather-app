@@ -23,8 +23,10 @@ navigator.geolocation.getCurrentPosition((position) => {
         <h1> ${json.name} </h1>
         <h2> ${(Math.round(json.main.temp))}°C</h2>
         <h3> ${json.weather[0].main}</h3>
-        <h4> 🌅 sunrise ${sunrise.toLocaleTimeString()}</h4>
-        <h4> 🌇 sunset ${sunset.toLocaleTimeString()}</h4>
+
+        <h4> <img src="./images/sunrise.png" alt="Sunrise"> ${sunrise.toLocaleTimeString([], { hour: 'numeric', minute: 'numeric', hour12: true })}</h4>
+        <h4> <img src="./images/sunset.png" alt="Sunset"> ${sunset.toLocaleTimeString([], { hour: 'numeric', minute: 'numeric', hour12: true })}</h4>
+
       `;
     });
 
@@ -34,7 +36,6 @@ navigator.geolocation.getCurrentPosition((position) => {
     .then((json) => {
       // Filter the forecast data to only show the information for 12:00 PM each day
 
-             const filteredForecast = json.list.filter(item => item.dt_txt.includes('12:00'))
             console.log(filteredForecast)
             filteredForecast.forEach((weeklyForecast) => {
                 forecastTemp.innerHTML += `<span>${weeklyForecast.main.temp.toFixed(0)}\u00B0C</span> `
@@ -66,4 +67,4 @@ navigator.geolocation.getCurrentPosition((position) => {
                
                  
              })
-            
+
